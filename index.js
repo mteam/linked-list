@@ -27,6 +27,25 @@ LinkedList.prototype.empty = function() {
   this.next = this.last = null;
 };
 
+LinkedList.prototype.each = function(fn, that) {
+  var node = this;
+
+  while (node = node.next) {
+    fn.call(that, node.value);
+  }
+};
+
+LinkedList.prototype.length = function() {
+  var node = this;
+  var count = 0;
+
+  while (node = node.next) {
+    count++;
+  }
+
+  return count;
+};
+
 function Node(value) {
   this.value = value;
   this.next = null;

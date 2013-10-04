@@ -40,6 +40,27 @@
 
         assert(list.pool.pool.length == 2);
       });
+
+      it('loops over', function() {
+        var list = new List();
+        var values = ['foo', 'bar', 'baz'];
+
+        values.forEach(list.append, list);
+
+        var i = 0;
+        list.each(function(value) {
+          assert(values[i++] == value);
+        });
+      });
+
+      it('counts nodes', function() {
+        var list = new List();
+
+        list.append('foo');
+        list.append('bar');
+
+        assert(list.length() == 2);
+      });
     
     });
 
