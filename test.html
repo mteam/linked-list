@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <title>Linked list tests</title>
+  <link rel="stylesheet" href="build/build.css">
+</head>
+<body>
+  <div id="mocha"></div>
+
+  <script src="build/build.js"></script>
+  <script>
+    require('mocha');
+    mocha.setup('bdd');
+  </script>
+
+  <script>
+    var assert = require('assert');
+    var List = require('linked-list');
+
+    describe('Linked list', function() {
+      
+      it('appends items', function() {
+        var list = new List();
+
+        list.append('foo');
+        list.append('bar');
+
+        assert(list.next.value == 'foo');
+        assert(list.next.next.value == 'bar');
+      });
+
+      it('empties', function() {
+        var list = new List();
+
+        assert(list.pool.pool.length == 0);
+
+        list.append('foo');
+        list.append('bar');
+        list.empty();
+
+        assert(list.pool.pool.length == 2);
+      });
+    
+    });
+
+    mocha.run();
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "linked-list",
+  "repo": "mteam/linked-list",
+  "version": "0.1.0",
+  "dependencies": {
+    "mteam/object-pool": "*"
+  },
+  "development": {
+    "visionmedia/mocha": "*",
+    "component/assert": "*"
+  },
+  "scripts": ["index.js"]
+}
